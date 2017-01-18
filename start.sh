@@ -7,4 +7,4 @@ sh /srv/config.sh
 chown mediadepot:mediadepot -R /srv/mopidy
 
 # run mopidy
-su -c "mopidy" mediadepot
+su -c "mopidy --config /srv/mopidy/config/mopidy.conf" mediadepot
