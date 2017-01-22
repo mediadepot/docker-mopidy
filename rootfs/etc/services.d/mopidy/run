@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/with-contenv sh
 
 #run the default config script
 sh /srv/config.sh
@@ -7,4 +7,5 @@ sh /srv/config.sh
 chown mediadepot:mediadepot -R /srv/mopidy
 
 # run mopidy
-su -c "mopidy --config /srv/mopidy/config/mopidy.conf" mediadepot
+HOME=/home/mediadepot
+exec s6-setuidgid mediadepot mopidy --config /srv/mopidy/config/mopidy.conf
